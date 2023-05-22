@@ -1,28 +1,30 @@
-// Multiplicar dos listas de 5 elementos
-// a: [4,3,2,2,1]
-// b: [-3,2,8,0,1]
-// La lista obtenida se concatena a una nueva lista de 5 elementos aleatorios
-// de -1 al -5. Luego ordenarla de forma descendente
+// Obtener el promedio de 3 listas con 7 elementos
+// Los elementos se generan de forma aleatoria (de 30 a 100)
 import 'dart:math';
 void main() {
-  List<int> lista_1 = [4, 3, 2, 2, 1];
-  List<int> lista_2 = [-3, 2, 8, 0, 1];
-  //Generar una lista random
   Random random = Random();
-  List c = List.generate(5, (index) => -random.nextInt(5) - 1);
-  print("La lista random es: ");
-  print(c);
-  //Consiguiendo la lista resultado
-  List lista_mult = [];
-  for (int i = 0; i < 5; i++){
-    lista_mult.add(lista_1[i] * lista_2[i]);
-    }
-  List lista_conc = c + lista_mult;
-  print ("La lista resultante entre a y b es: $lista_mult");
-  print ("La lista concatenada es: ");
-  print(lista_conc);
-  (lista_conc).sort((a,b)=> b.compareTo(a));
-  print("La lista ordenada descendentemente es:");
-  print (lista_conc);
+  List lista_1 = List.generate(7, (index) => random.nextInt(70)+30);
+  List lista_2 = List.generate(7, (index) => random.nextInt(70)+30);
+  List lista_3 = List.generate(7, (index) => random.nextInt(70)+30);
+
+  print("La lista 1 es: $lista_1");
+  print("La lista 2 es: $lista_2");
+  print("La lista 3 es: $lista_3");
+
+  int suma_1 = lista_1.reduce((a,b) => a + b);
+  double promedio_1 = suma_1 / 7;
+  String Pr_1 = promedio_1.toStringAsFixed(3);
+
+  int suma_2 = lista_2.reduce((a,b) => a + b);
+  double promedio_2 = suma_2 / 7;
+  String Pr_2 = promedio_2.toStringAsFixed(3);
+
+  int suma_3= lista_3.reduce((a,b) => a + b);
+  double promedio_3 = suma_3 /7;
+  String Pr_3 = promedio_3.toStringAsFixed(3);
+
+  List Promedios = [Pr_1,Pr_2,Pr_3];
+  print("La lista con los promedios es: $Promedios");
+
 
 }
